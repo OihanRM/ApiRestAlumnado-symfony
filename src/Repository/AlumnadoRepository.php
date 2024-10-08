@@ -15,7 +15,16 @@ class AlumnadoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Alumnado::class);
     }
-
+    public function add(Alumnado $alumnado): void
+    {
+        $this-> getEntityManager()->persist($alumnado);
+        $this-> getEntityManager()->flush();
+    }
+    public function delete(Alumnado $alumnado): void
+    {
+        $this-> getEntityManager()->remove($alumnado);
+        $this-> getEntityManager()->flush();
+    }
     //    /**
     //     * @return Alumnado[] Returns an array of Alumnado objects
     //     */

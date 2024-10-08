@@ -32,6 +32,16 @@ class Alumnado
     #[ORM\Column(length: 255)]
     private ?string $provincia = null;
 
+    public function __construct(?string $dni, string $nombre, string $apellido1, ?string $apellido2, ?\DateTimeInterface $fecha, string $provincia)
+    {
+        $this->dni = $dni;
+        $this->nombre = $nombre;
+        $this->apellido1 = $apellido1;
+        $this->apellido2 = $apellido2;
+        $this->fecha = $fecha;
+        $this->provincia = $provincia;
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
